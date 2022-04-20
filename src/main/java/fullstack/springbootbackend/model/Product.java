@@ -1,5 +1,6 @@
 package fullstack.springbootbackend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import javax.persistence.*;
@@ -9,7 +10,8 @@ import javax.persistence.*;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @Column(name = "id")
+    private Long id;
 
     @Column(name = "name")
     private String name;
@@ -17,18 +19,21 @@ public class Product {
     private int price;
     @Column(name = "image")
     private String image;
-    @Column(name = "title")
-    private String title;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "category_id", referencedColumnName = "id")
+    @JsonIgnore
+    private Category category;
 
     public Product() {
 
     }
 
-    public Product(String name, int price, String image, String title) {
+    public Product(String name, int price, String image, Category category) {
         this.name = name;
         this.price = price;
         this.image = image;
-        this.title = title;
+        this.category = category;
     }
 
     public long getId() {
@@ -63,11 +68,15 @@ public class Product {
         this.image = image;
     }
 
-    public String getTitle() {
-        return title;
+    public Category getCategory() {
+        return category;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setCategory(Category category) {
+        this.category = category;
     }
+
+
 }
+
+
