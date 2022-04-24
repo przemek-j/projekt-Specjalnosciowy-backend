@@ -19,7 +19,7 @@ public class MainPageController {
     @Autowired
     CategoryRepo categoryRepo;
     @RequestMapping("categories")
-    public HashMap<String, Object> getCategories(){
+    public List<Object> getCategories(){
         var sections = new ArrayList<>();
         List<Category> categories = categoryRepo.findAll();
         System.out.println(categories);
@@ -27,9 +27,7 @@ public class MainPageController {
         for (Category category : categories){
             sections.add(getsection(category));
         }
-        var endpoint = new HashMap<String, Object>();
-        endpoint.put("sections", sections);
-        return endpoint;
+        return sections;
     }
 
     HashMap<String,Object> getsection(Category c){
