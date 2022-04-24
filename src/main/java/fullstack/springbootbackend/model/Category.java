@@ -12,13 +12,15 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private String image;
 
     @OneToMany(mappedBy = "category")
     private List<Product> products;
 
-    public Category(long id, String name) {
+    public Category(long id, String name, String image) {
         this.id = id;
         this.name = name;
+        this.image = image;
     }
 
     public Category() {
@@ -46,6 +48,18 @@ public class Category {
 
     public void setProducts(List<Product> products) {
         this.products = products;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     @Override
