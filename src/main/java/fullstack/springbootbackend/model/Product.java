@@ -1,7 +1,6 @@
 package fullstack.springbootbackend.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.databind.JsonNode;
 
 import javax.persistence.*;
 

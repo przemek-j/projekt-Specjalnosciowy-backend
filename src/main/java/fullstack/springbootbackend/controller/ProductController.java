@@ -1,7 +1,6 @@
 package fullstack.springbootbackend.controller;
 
 import fullstack.springbootbackend.model.Category;
-import fullstack.springbootbackend.model.Product;
 import fullstack.springbootbackend.repository.CategoryRepo;
 import fullstack.springbootbackend.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
