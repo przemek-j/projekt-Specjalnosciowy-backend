@@ -23,7 +23,6 @@ public class MainPageController {
         var sections = new ArrayList<>();
         List<Category> categories = categoryRepo.findAll();
         System.out.println(categories);
-        HashMap<String, Object> section = new HashMap<>();
         for (Category category : categories){
             sections.add(getsection(category));
         }
