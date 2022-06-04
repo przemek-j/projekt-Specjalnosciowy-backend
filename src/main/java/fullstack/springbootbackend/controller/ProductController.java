@@ -18,7 +18,6 @@ public class ProductController {
     @Autowired
     private CategoryRepo categoryRepo;
 
-    // get all products
     @GetMapping("/products")
     public HashMap<String, Object> getAllProducts() {
         var products = new HashMap<String, Object>();
@@ -31,6 +30,7 @@ public class ProductController {
     }
 
     HashMap<String,Object> getCategory(Category c){
+
         var category = new HashMap<String, Object>();
         category.put("title", c.getName());
         category.put("routeName", c.getName().toLowerCase(Locale.ROOT));
