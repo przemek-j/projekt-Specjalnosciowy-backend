@@ -36,4 +36,9 @@ public class MainPageController {
         section.put("id", c.getId());
         return section;
     }
+
+    @RequestMapping("adminPanel")
+    public String adminPanel(){
+        return "Admin panel";
+    }
 }
